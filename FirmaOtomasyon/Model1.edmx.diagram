@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="64b77014d25f41b2bb0f04224c537e28" Name="Diagram1" ZoomLevel="55">
+        <EntityTypeShape EntityType="DBFIRMAModel.sysdiagrams" Width="1.5" PointX="18.5" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBFIRMAModel.TBLADMIN" Width="1.5" PointX="20.625" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBFIRMAModel.TBLFATURABILGI" Width="1.5" PointX="6.875" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBFIRMAModel.TBLFATURADETAY" Width="1.5" PointX="9.125" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBFIRMAModel.TBLFIRMA" Width="1.5" PointX="4.75" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBFIRMAModel.TBLGOREV" Width="1.5" PointX="11" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBFIRMAModel.TBLISLEMDETAY" Width="1.5" PointX="23.375" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBFIRMAModel.TBLKATEGORI" Width="1.5" PointX="2.625" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBFIRMAModel.TBLNOT" Width="1.5" PointX="26.375" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBFIRMAModel.TBLPERSONEL" Width="1.5" PointX="11.875" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBFIRMAModel.TBLTAKIP" Width="1.5" PointX="7.75" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBFIRMAModel.TBLURUN" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBFIRMAModel.TBLURUNISLEM" Width="1.5" PointX="9.5" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBFIRMAModel.TBLURUNSATIS" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="DBFIRMAModel.FK_TBLFATURABILGI_TBLFIRMA" ManuallyRouted="false" />
+        <AssociationConnector Association="DBFIRMAModel.FK_TBLFATURABILGI_TBLPERSONEL" ManuallyRouted="false" />
+        <AssociationConnector Association="DBFIRMAModel.FK_TBLFATURADETAY_TBLFATURABILGI" ManuallyRouted="false" />
+        <AssociationConnector Association="DBFIRMAModel.FK_TBLURUNISLEM_TBLFIRMA" ManuallyRouted="false" />
+        <AssociationConnector Association="DBFIRMAModel.FK_TBLURUNSATIS_TBLFIRMA" ManuallyRouted="false" />
+        <AssociationConnector Association="DBFIRMAModel.FK_TBLPERSONEL_TBLGOREV" ManuallyRouted="false" />
+        <AssociationConnector Association="DBFIRMAModel.FK_TBLURUN_TBLKATEGORI" ManuallyRouted="false" />
+        <AssociationConnector Association="DBFIRMAModel.FK_TBLURUNISLEM_TBLPERSONEL" ManuallyRouted="false" />
+        <AssociationConnector Association="DBFIRMAModel.FK_TBLURUNSATIS_TBLPERSONEL" ManuallyRouted="false" />
+        <AssociationConnector Association="DBFIRMAModel.FK_TBLTAKIP_TBLURUN" ManuallyRouted="false" />
+        <AssociationConnector Association="DBFIRMAModel.FK_TBLURUNSATIS_TBLURUN" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

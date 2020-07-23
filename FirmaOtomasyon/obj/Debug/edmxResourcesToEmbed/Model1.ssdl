@@ -1,0 +1,332 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DBFIRMAModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="TBLADMIN">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="KULLANICIAD" Type="varchar" MaxLength="50" />
+    <Property Name="KULLANICISIFRE" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="TBLFATURABILGI">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SERI" Type="char" MaxLength="1" />
+    <Property Name="SIRA" Type="varchar" MaxLength="6" />
+    <Property Name="TARIH" Type="smalldatetime" />
+    <Property Name="SAAT" Type="char" MaxLength="5" />
+    <Property Name="FIRMA" Type="int" />
+    <Property Name="PERSONEL" Type="smallint" />
+  </EntityType>
+  <EntityType Name="TBLFATURADETAY">
+    <Key>
+      <PropertyRef Name="FATURADETAYID" />
+    </Key>
+    <Property Name="FATURADETAYID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="URUN" Type="varchar" MaxLength="50" />
+    <Property Name="ADET" Type="smallint" />
+    <Property Name="FIYAT" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="TUTAR" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="FATURAID" Type="int" />
+  </EntityType>
+  <EntityType Name="TBLFIRMA">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AD" Type="varchar" MaxLength="50" />
+    <Property Name="TELEFON" Type="varchar" MaxLength="20" />
+    <Property Name="MAIL" Type="varchar" MaxLength="50" />
+    <Property Name="IL" Type="varchar" MaxLength="20" />
+    <Property Name="ODEME" Type="varchar" MaxLength="50" />
+    <Property Name="FIRMANO" Type="varchar" MaxLength="50" />
+    <Property Name="STATU" Type="varchar" MaxLength="50" />
+    <Property Name="ADRES" Type="varchar" MaxLength="350" />
+  </EntityType>
+  <EntityType Name="TBLGOREV">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GOREV" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="TBLISLEMDETAY">
+    <Key>
+      <PropertyRef Name="URUNISLEMID" />
+    </Key>
+    <Property Name="URUNISLEMID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ISLEM" Type="int" />
+    <Property Name="ACIKLAMA" Type="varchar" MaxLength="150" />
+    <Property Name="FIYAT" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="ISLEMLER" Type="varchar" MaxLength="450" />
+  </EntityType>
+  <EntityType Name="TBLKATEGORI">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="KATEGORIAD" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="TBLNOT">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BASLIK" Type="varchar" MaxLength="50" />
+    <Property Name="ICERIK" Type="varchar" MaxLength="350" />
+    <Property Name="DURUM" Type="bit" />
+    <Property Name="TARIH" Type="smalldatetime" />
+  </EntityType>
+  <EntityType Name="TBLPERSONEL">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TCNO" Type="varchar" MaxLength="30" />
+    <Property Name="ADSOYAD" Type="varchar" MaxLength="30" />
+    <Property Name="TELEFON" Type="nvarchar" MaxLength="30" />
+    <Property Name="MAIL" Type="nvarchar" MaxLength="50" />
+    <Property Name="ADRES" Type="varchar" MaxLength="50" />
+    <Property Name="GOREV" Type="tinyint" />
+    <Property Name="FOTOGRAF" Type="varchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="TBLTAKIP">
+    <Key>
+      <PropertyRef Name="TAKIPID" />
+    </Key>
+    <Property Name="TAKIPID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="URUN" Type="int" />
+    <Property Name="DURUM" Type="varchar" MaxLength="250" />
+    <Property Name="TARIH" Type="int" />
+    <Property Name="KOD" Type="char" MaxLength="4" />
+  </EntityType>
+  <EntityType Name="TBLURUN">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="KATEGORI" Type="tinyint" />
+    <Property Name="AD" Type="varchar" MaxLength="30" />
+    <Property Name="MARKA" Type="varchar" MaxLength="30" />
+    <Property Name="ALISFİYAT" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="SATISFIYAT" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="STOK" Type="smallint" />
+    <Property Name="OZELLIK" Type="nvarchar(max)" />
+    <Property Name="DURUM" Type="bit" />
+  </EntityType>
+  <EntityType Name="TBLURUNISLEM">
+    <Key>
+      <PropertyRef Name="ISLEMID" />
+    </Key>
+    <Property Name="ISLEMID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FIRMA" Type="int" />
+    <Property Name="PERSONEL" Type="smallint" />
+    <Property Name="GELISTARIH" Type="smalldatetime" />
+    <Property Name="CIKISTARIH" Type="smalldatetime" />
+    <Property Name="ADET" Type="int" />
+    <Property Name="ACIKLAMA" Type="nvarchar" MaxLength="250" />
+    <Property Name="SERINO" Type="char" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="TBLURUNSATIS">
+    <Key>
+      <PropertyRef Name="SATISID" />
+    </Key>
+    <Property Name="SATISID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="URUN" Type="int" />
+    <Property Name="MUSTERI" Type="int" />
+    <Property Name="PERSONEL" Type="smallint" />
+    <Property Name="TARIH" Type="smalldatetime" />
+    <Property Name="ADET" Type="smallint" />
+    <Property Name="FIYAT" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="KDV" Type="int" />
+    <Property Name="SERINO" Type="char" MaxLength="10" />
+  </EntityType>
+  <Association Name="FK_TBLFATURABILGI_TBLFIRMA">
+    <End Role="TBLFIRMA" Type="Self.TBLFIRMA" Multiplicity="0..1" />
+    <End Role="TBLFATURABILGI" Type="Self.TBLFATURABILGI" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBLFIRMA">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TBLFATURABILGI">
+        <PropertyRef Name="FIRMA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBLFATURABILGI_TBLPERSONEL">
+    <End Role="TBLPERSONEL" Type="Self.TBLPERSONEL" Multiplicity="0..1" />
+    <End Role="TBLFATURABILGI" Type="Self.TBLFATURABILGI" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBLPERSONEL">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TBLFATURABILGI">
+        <PropertyRef Name="PERSONEL" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBLPERSONEL_TBLGOREV">
+    <End Role="TBLGOREV" Type="Self.TBLGOREV" Multiplicity="0..1" />
+    <End Role="TBLPERSONEL" Type="Self.TBLPERSONEL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBLGOREV">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TBLPERSONEL">
+        <PropertyRef Name="GOREV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBLTAKIP_TBLURUN">
+    <End Role="TBLURUN" Type="Self.TBLURUN" Multiplicity="0..1" />
+    <End Role="TBLTAKIP" Type="Self.TBLTAKIP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBLURUN">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TBLTAKIP">
+        <PropertyRef Name="URUN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBLURUN_TBLKATEGORI">
+    <End Role="TBLKATEGORI" Type="Self.TBLKATEGORI" Multiplicity="0..1" />
+    <End Role="TBLURUN" Type="Self.TBLURUN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBLKATEGORI">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TBLURUN">
+        <PropertyRef Name="KATEGORI" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBLURUNISLEM_TBLFIRMA">
+    <End Role="TBLFIRMA" Type="Self.TBLFIRMA" Multiplicity="0..1" />
+    <End Role="TBLURUNISLEM" Type="Self.TBLURUNISLEM" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBLFIRMA">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TBLURUNISLEM">
+        <PropertyRef Name="FIRMA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBLURUNISLEM_TBLPERSONEL">
+    <End Role="TBLPERSONEL" Type="Self.TBLPERSONEL" Multiplicity="0..1" />
+    <End Role="TBLURUNISLEM" Type="Self.TBLURUNISLEM" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBLPERSONEL">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TBLURUNISLEM">
+        <PropertyRef Name="PERSONEL" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBLURUNSATIS_TBLFIRMA">
+    <End Role="TBLFIRMA" Type="Self.TBLFIRMA" Multiplicity="0..1" />
+    <End Role="TBLURUNSATIS" Type="Self.TBLURUNSATIS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBLFIRMA">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TBLURUNSATIS">
+        <PropertyRef Name="MUSTERI" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBLURUNSATIS_TBLPERSONEL">
+    <End Role="TBLPERSONEL" Type="Self.TBLPERSONEL" Multiplicity="0..1" />
+    <End Role="TBLURUNSATIS" Type="Self.TBLURUNSATIS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBLPERSONEL">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TBLURUNSATIS">
+        <PropertyRef Name="PERSONEL" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBLURUNSATIS_TBLURUN">
+    <End Role="TBLURUN" Type="Self.TBLURUN" Multiplicity="0..1" />
+    <End Role="TBLURUNSATIS" Type="Self.TBLURUNSATIS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBLURUN">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TBLURUNSATIS">
+        <PropertyRef Name="URUN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DBFIRMAModelStoreContainer">
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBLADMIN" EntityType="Self.TBLADMIN" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBLFATURABILGI" EntityType="Self.TBLFATURABILGI" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBLFATURADETAY" EntityType="Self.TBLFATURADETAY" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBLFIRMA" EntityType="Self.TBLFIRMA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBLGOREV" EntityType="Self.TBLGOREV" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBLISLEMDETAY" EntityType="Self.TBLISLEMDETAY" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBLKATEGORI" EntityType="Self.TBLKATEGORI" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBLNOT" EntityType="Self.TBLNOT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBLPERSONEL" EntityType="Self.TBLPERSONEL" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBLTAKIP" EntityType="Self.TBLTAKIP" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBLURUN" EntityType="Self.TBLURUN" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBLURUNISLEM" EntityType="Self.TBLURUNISLEM" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBLURUNSATIS" EntityType="Self.TBLURUNSATIS" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_TBLFATURABILGI_TBLFIRMA" Association="Self.FK_TBLFATURABILGI_TBLFIRMA">
+      <End Role="TBLFIRMA" EntitySet="TBLFIRMA" />
+      <End Role="TBLFATURABILGI" EntitySet="TBLFATURABILGI" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBLFATURABILGI_TBLPERSONEL" Association="Self.FK_TBLFATURABILGI_TBLPERSONEL">
+      <End Role="TBLPERSONEL" EntitySet="TBLPERSONEL" />
+      <End Role="TBLFATURABILGI" EntitySet="TBLFATURABILGI" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBLPERSONEL_TBLGOREV" Association="Self.FK_TBLPERSONEL_TBLGOREV">
+      <End Role="TBLGOREV" EntitySet="TBLGOREV" />
+      <End Role="TBLPERSONEL" EntitySet="TBLPERSONEL" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBLTAKIP_TBLURUN" Association="Self.FK_TBLTAKIP_TBLURUN">
+      <End Role="TBLURUN" EntitySet="TBLURUN" />
+      <End Role="TBLTAKIP" EntitySet="TBLTAKIP" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBLURUN_TBLKATEGORI" Association="Self.FK_TBLURUN_TBLKATEGORI">
+      <End Role="TBLKATEGORI" EntitySet="TBLKATEGORI" />
+      <End Role="TBLURUN" EntitySet="TBLURUN" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBLURUNISLEM_TBLFIRMA" Association="Self.FK_TBLURUNISLEM_TBLFIRMA">
+      <End Role="TBLFIRMA" EntitySet="TBLFIRMA" />
+      <End Role="TBLURUNISLEM" EntitySet="TBLURUNISLEM" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBLURUNISLEM_TBLPERSONEL" Association="Self.FK_TBLURUNISLEM_TBLPERSONEL">
+      <End Role="TBLPERSONEL" EntitySet="TBLPERSONEL" />
+      <End Role="TBLURUNISLEM" EntitySet="TBLURUNISLEM" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBLURUNSATIS_TBLFIRMA" Association="Self.FK_TBLURUNSATIS_TBLFIRMA">
+      <End Role="TBLFIRMA" EntitySet="TBLFIRMA" />
+      <End Role="TBLURUNSATIS" EntitySet="TBLURUNSATIS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBLURUNSATIS_TBLPERSONEL" Association="Self.FK_TBLURUNSATIS_TBLPERSONEL">
+      <End Role="TBLPERSONEL" EntitySet="TBLPERSONEL" />
+      <End Role="TBLURUNSATIS" EntitySet="TBLURUNSATIS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBLURUNSATIS_TBLURUN" Association="Self.FK_TBLURUNSATIS_TBLURUN">
+      <End Role="TBLURUN" EntitySet="TBLURUN" />
+      <End Role="TBLURUNSATIS" EntitySet="TBLURUNSATIS" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
